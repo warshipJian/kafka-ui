@@ -23,17 +23,6 @@ const ActionsCell: React.FC<CellContext<Partition, unknown>> = ({ row }) => {
     data?.internal || isReadOnly || data?.cleanUpPolicy !== 'DELETE';
   return (
     <Dropdown disabled={disabled}>
-      <ActionDropdownItem
-        onClick={clearTopicMessagesHandler}
-        danger
-        permission={{
-          resource: ResourceType.TOPIC,
-          action: Action.MESSAGES_DELETE,
-          value: topicName,
-        }}
-      >
-        Clear Messages
-      </ActionDropdownItem>
     </Dropdown>
   );
 };

@@ -87,16 +87,6 @@ const Dashboard: React.FC = () => {
           />
           <label>Only offline clusters</label>
         </div>
-        {appInfo.hasDynamicConfig && (
-          <ActionCanButton
-            buttonType="primary"
-            buttonSize="M"
-            to={clusterNewConfigPath}
-            canDoAction={hasPermissions}
-          >
-            Configure new cluster
-          </ActionCanButton>
-        )}
       </S.Toolbar>
       <Table
         columns={columns}

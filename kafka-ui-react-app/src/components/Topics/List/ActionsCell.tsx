@@ -33,65 +33,6 @@ const ActionsCell: React.FC<CellContext<Topic, unknown>> = ({ row }) => {
 
   return (
     <Dropdown disabled={disabled}>
-      <ActionDropdownItem
-        disabled={isCleanupDisabled}
-        onClick={clearTopicMessagesHandler}
-        confirm="Are you sure want to clear topic messages?"
-        danger
-        permission={{
-          resource: ResourceType.TOPIC,
-          action: Action.MESSAGES_DELETE,
-          value: name,
-        }}
-      >
-        Clear Messages
-        <DropdownItemHint>
-          Clearing messages is only allowed for topics
-          <br />
-          with DELETE policy
-        </DropdownItemHint>
-      </ActionDropdownItem>
-      <ActionDropdownItem
-        disabled={!isTopicDeletionAllowed}
-        onClick={recreateTopic.mutateAsync}
-        confirm={
-          <>
-            Are you sure to recreate <b>{name}</b> topic?
-          </>
-        }
-        danger
-        permission={{
-          resource: ResourceType.TOPIC,
-          action: [Action.VIEW, Action.CREATE, Action.DELETE],
-          value: name,
-        }}
-      >
-        Recreate Topic
-      </ActionDropdownItem>
-      <ActionDropdownItem
-        disabled={!isTopicDeletionAllowed}
-        onClick={() => deleteTopic.mutateAsync(name)}
-        confirm={
-          <>
-            Are you sure want to remove <b>{name}</b> topic?
-          </>
-        }
-        danger
-        permission={{
-          resource: ResourceType.TOPIC,
-          action: Action.DELETE,
-          value: name,
-        }}
-      >
-        Remove Topic
-        {!isTopicDeletionAllowed && (
-          <DropdownItemHint>
-            The topic deletion is restricted at the broker
-            <br />
-            configuration level (delete.topic.enable = false)
-          </DropdownItemHint>
-        )}
-      </ActionDropdownItem>
     </Dropdown>
   );
 };

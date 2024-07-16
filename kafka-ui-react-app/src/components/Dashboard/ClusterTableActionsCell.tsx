@@ -11,12 +11,7 @@ const ClusterTableActionsCell: React.FC<Props> = ({ row }) => {
   const { name } = row.original;
   const { data } = useGetUserInfo();
 
-  const hasPermissions = useMemo(() => {
-    if (!data?.rbacEnabled) return true;
-    return !!data?.userInfo?.permissions.some(
-      (permission) => permission.resource === ResourceType.APPLICATIONCONFIG
-    );
-  }, [data]);
+  const hasPermissions = false;
 
   return (
     <ActionCanButton

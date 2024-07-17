@@ -47,19 +47,6 @@ const ListPage: React.FC = () => {
   return (
     <>
       <PageHeading text="Topics">
-        {!isReadOnly && (
-          <ActionButton
-            buttonType="primary"
-            buttonSize="M"
-            to={clusterTopicNewRelativePath}
-            permission={{
-              resource: ResourceType.TOPIC,
-              action: Action.CREATE,
-            }}
-          >
-            <PlusIcon /> Add a Topic
-          </ActionButton>
-        )}
       </PageHeading>
       <ControlPanelWrapper hasInput>
         <Search placeholder="Search by Topic Name" />

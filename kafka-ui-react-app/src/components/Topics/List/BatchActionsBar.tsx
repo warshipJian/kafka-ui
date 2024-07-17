@@ -135,33 +135,6 @@ const BatchActionsbar: React.FC<BatchActionsbarProps> = ({
 
   return (
     <>
-      <ActionCanButton
-        buttonSize="M"
-        buttonType="secondary"
-        onClick={deleteTopicsHandler}
-        disabled={!selectedTopics.length}
-        canDoAction={canDeleteSelectedTopics}
-      >
-        Delete selected topics
-      </ActionCanButton>
-      <ActionCanButton
-        buttonSize="M"
-        buttonType="secondary"
-        disabled={selectedTopics.length !== 1}
-        canDoAction={canCopySelectedTopic}
-        to={getCopyTopicPath()}
-      >
-        Copy selected topic
-      </ActionCanButton>
-      <ActionCanButton
-        buttonSize="M"
-        buttonType="secondary"
-        onClick={purgeTopicsHandler}
-        disabled={!selectedTopics.length}
-        canDoAction={canPurgeSelectedTopics}
-      >
-        Purge messages of selected topics
-      </ActionCanButton>
     </>
   );
 };
